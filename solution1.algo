@@ -1,0 +1,36 @@
+ALGORITHM solution_1
+VAR
+    sum1 : INTEGER := 0;
+    sum2 : INTEGER := 0;
+    set1 : ARRAY_OF INTEGER[7];
+    set2 : ARRAY_OF INTEGER[6];
+    j : INTEGER := 0;
+    i : INTEGER := 0;
+BEGIN
+    //find the sum of all distinct element from the set
+
+    Write ("donner les valeurs du premier set1 de longueur 7");
+    Read(set1);
+    Write("donner les valeurs du deuxieme set2 de longueur 6");
+    Read(set2);
+    FOR i FROM 0 TO set1.Length-1 STEP 1  DO
+        FOR j FROM 0 TO set2.Length-1 STEP 1  DO
+            IF (set1[i]<>set2[j]) THEN
+                sum1:=sum1+set1[i];
+            END_IF
+        END_FOR
+    END_FOR
+    Write("the sum of all distinct element from the set :", sum1);
+
+    //find the sum of common elements from the set
+  
+    FOR i FROM 0 TO set1.Length-1 STEP 1  DO
+        FOR j FROM 0 TO set2.Length-1 STEP 1  DO
+            IF (set1[i]=set2[j]) THEN
+                sum2:=sum2+set1[i]+set2[j];
+            END_IF
+        END_FOR
+    END_FOR
+    Write("the sum of all common element from the set :", sum2);
+
+END
